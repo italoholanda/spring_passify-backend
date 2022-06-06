@@ -15,6 +15,7 @@ import passify.app.request.EventPutRequestBody;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -33,6 +34,7 @@ public class EventService {
     public List<Event> findByName(String name) {
         return eventRepository.findByName(name);
     }
+
     public Event findByIdOrThrowBadRequest(UUID id) {
         return eventRepository.findById(id)
                 .orElseThrow(() -> new BadRequestException("Event not found"));
