@@ -44,13 +44,13 @@ public class EventController {
     }
 
     @PostMapping(path = "/delete/{id}")
-    public ResponseEntity<Event> save(@RequestBody @Valid @RequestParam UUID id) {
+    public ResponseEntity<Event> delete(@RequestBody @Valid @RequestParam UUID id) {
         eventService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @PutMapping(path = "/update")
-    public ResponseEntity<Void> replace(@RequestBody EventPutRequestBody eventPutRequestBody) {
+    public ResponseEntity<Void> update(@RequestBody EventPutRequestBody eventPutRequestBody) {
         eventService.replace(eventPutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
