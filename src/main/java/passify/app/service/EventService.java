@@ -15,8 +15,7 @@ import passify.app.request.EventPutRequestBody;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+
 
 @Service
 @RequiredArgsConstructor
@@ -35,7 +34,7 @@ public class EventService {
         return eventRepository.findByName(name);
     }
 
-    public Event findByIdOrThrowBadRequest(UUID id) {
+    public Event findByIdOrThrowBadRequest(Long id) {
         return eventRepository.findById(id)
                 .orElseThrow(() -> new BadRequestException("Event not found"));
     }
@@ -46,7 +45,7 @@ public class EventService {
         return eventRepository.save(event);
     }
 
-    public void delete(UUID id) {
+    public void delete(Long id) {
         eventRepository.delete(findByIdOrThrowBadRequest(id));
     }
 
