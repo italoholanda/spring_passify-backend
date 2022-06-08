@@ -14,7 +14,6 @@ import passify.app.service.EventService;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("events")
@@ -34,17 +33,17 @@ public class EventController {
     }
 
     @GetMapping(path = "/id/{id}")
-    public ResponseEntity<Event> findById(@RequestParam UUID id) {
+    public ResponseEntity<Event> findById(@PathVariable Long id) {
         return ResponseEntity.ok(eventService.findByIdOrThrowBadRequest(id));
     }
 
     @PostMapping(path = "/save")
     public ResponseEntity<Event> save(@RequestBody @Valid EventPostRequestBody eventPostRequestBody) {
-        return new ResponseEntity<>(eventService.save(eventPostRequestBody), HttpStatus.CREATED);
+        return new ResponseEntity<Event>(eventService.save(eventPostRequestBody), HttpStatus.CREATED);
     }
 
     @PostMapping(path = "/delete/{id}")
-    public ResponseEntity<Event> delete(@RequestBody @Valid @RequestParam UUID id) {
+    public ResponseEntity<Event> delete(@RequestBody @Valid @RequestParam Long id) {
         eventService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
