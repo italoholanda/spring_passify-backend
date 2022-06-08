@@ -1,5 +1,6 @@
 package passify.app.request;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
@@ -12,6 +13,7 @@ public class EventPostRequestBody {
     @NotNull
     @NotEmpty(message = "Name field cannot be empty")
     private String name;
+
     private String description;
     private double price;
 

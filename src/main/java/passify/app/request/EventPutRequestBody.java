@@ -5,14 +5,13 @@ import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.UUID;
 
 @Data
 @Builder
 public class EventPutRequestBody {
     @NotNull
     @NotEmpty(message = "ID field cannot be empty")
-    private UUID id;
+    private Long id;
 
     private String name;
     private String description;
