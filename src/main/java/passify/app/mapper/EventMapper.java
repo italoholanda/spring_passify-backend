@@ -12,6 +12,6 @@ import passify.app.request.EventPutRequestBody;
 public abstract class EventMapper {
     public static final EventMapper INSTANCE = Mappers.getMapper(EventMapper.class);
     @Autowired
-    public abstract Event toEvent(EventPostRequestBody animePostRequestBody);
-    public abstract Event toEvent(EventPutRequestBody animePutRequestBody);
+    public abstract Event toEvent(EventPostRequestBody eventPostRequestBody);
+    public abstract Event toEvent(EventPutRequestBody eventPutRequestBody);
 }
