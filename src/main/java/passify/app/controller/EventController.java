@@ -42,8 +42,8 @@ public class EventController {
         return new ResponseEntity<Event>(eventService.save(eventPostRequestBody), HttpStatus.CREATED);
     }
 
-    @PostMapping(path = "/delete/{id}")
-    public ResponseEntity<Event> delete(@RequestBody @Valid @RequestParam Long id) {
+    @DeleteMapping(path = "/delete/{id}")
+    public ResponseEntity<Event> delete(@RequestBody @Valid @PathVariable Long id) {
         eventService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
